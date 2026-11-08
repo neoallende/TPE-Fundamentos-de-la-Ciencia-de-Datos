@@ -1,26 +1,26 @@
-# ============================================================================
-# requirements.txt - PENDIENTE DE COMPLETAR
-# ----------------------------------------------------------------------------
-# Todavia no se sabe que librerias se van a usar en el trabajo.
-# Cuando la notebook este terminada:
-#   1. Crear un entorno virtual limpio (python -m venv .venv) y activarlo.
-#   2. Instalar SOLO lo que la notebook importa realmente.
-#   3. Ejecutar:  pip freeze > requirements.txt
-#      (o usar pipreqs/pip-chill para listar solo lo necesario)
-#   4. Probar en otro entorno limpio: pip install -r requirements.txt
-#      y correr la notebook con "Restart & Run All".
-#   5. Borrar este encabezado y las lineas de ejemplo de abajo.
+# Dependencias para ejecutar la notebook del TPE (Grupo 33) de forma local en Jupyter.
+# Las versiones son mínimas compatibles con el código de la notebook (la ejecución original
+# usó Python 3.12 con pandas 3.x y numpy 2.x); se recomienda Python 3.10 o superior.
 #
-# Candidatas probables (descomentar y fijar versiones solo las que se usen):
-# ============================================================================
-
-# notebook
-# jupyterlab
-# ipykernel
-# numpy
-# pandas
-# scipy
-# matplotlib
-# seaborn
-# statsmodels
-# scikit-learn
+# Instalación (idealmente dentro de un entorno virtual):
+#   python -m venv .venv
+#   source .venv/bin/activate        # en Windows: .venv\Scripts\activate
+#   pip install -r requirements.txt
+#   jupyter notebook
+ 
+# --- Análisis de datos y estadística
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11            # ttest_ind(...).confidence_interval requiere scipy >= 1.10
+statsmodels>=0.14      # OLS, Logit, Breusch-Pagan, Durbin-Watson, VIF, proportions_ztest
+scikit-learn>=1.3      # roc_auc_score (AUC de la Hipótesis 6)
+ 
+# --- Gráficos y reporte exploratorio
+matplotlib>=3.7
+seaborn>=0.13
+sweetviz>=2.3.1
+ 
+# --- Entorno Jupyter
+notebook>=7.0
+ipykernel>=6.25
+ipywidgets>=8.0        # evita el aviso "IProgress not found" y permite mostrar el reporte de Sweetviz
