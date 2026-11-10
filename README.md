@@ -1,8 +1,8 @@
 # TPE – Fundamentos de la Ciencia de Datos (2026)
 
-Trabajo Práctico Especial: análisis del conjunto de datos **CKF-NHANES** sobre enfermedad renal crónica (CKD/CKF), a partir de datos de la encuesta poblacional de salud y nutrición NHANES de Estados Unidos (2021-2023).
+Trabajo Práctico Especial: análisis del conjunto de datos **CKD-NHANES** sobre enfermedad renal crónica (CKD), a partir de datos de la encuesta poblacional de salud y nutrición NHANES de Estados Unidos (ciclo 2021-2023).
 
-## Integrantes (Grupo XX)
+## Integrantes (Grupo 33)
 
 - Allende, Neo
 - Maiarú, Francisco
@@ -14,10 +14,10 @@ Trabajo Práctico Especial: análisis del conjunto de datos **CKF-NHANES** sobre
 .
 ├── README.md                    # Este archivo
 ├── requirements.txt             # Dependencias de Python (pip)
-├── TPE_Ciencia_de_Datos.ipynb   # Notebook de Jupyter con todo el análisis
 ├── Informe.docx                 # Informe con hallazgos y conclusiones
-├── dataset.csv                  # Conjunto de datos CKF-NHANES
-├── metadata.docx                # Guía de contexto y diccionario de variables (material de la cátedra)
+├── TPE_Ciencia_de_Datos.ipynb   # Notebook de Jupyter con todo el análisis (solo código)
+├── dataset.csv                  # Conjunto de datos CKD-NHANES
+├── metadata.docx                # Documentación de las variables del conjunto de datos
 └── .gitignore
 ```
 
@@ -30,15 +30,13 @@ La notebook implementa, organizada en secciones, los requerimientos del enunciad
 3. Planteo de tres hipótesis propias (univariada, bivariada y multivariada).
 4. Validación de las tres hipótesis propias y de las tres provistas por la cátedra.
 
-El informe (`Informe.docx`) referencia explícitamente las secciones de la notebook en las que se realiza cada cálculo.
+El informe sigue la misma estructura que la notebook y referencia explícitamente las secciones en las que se realiza cada cálculo.
 
 ## Requisitos previos
 
-- **Python 3.X** (completar con la versión usada, por ejemplo 3.11).
+- **Python 3.12**.
 - `pip` y `venv` (incluidos en las instalaciones estándar de Python).
-- Git, para clonar el repositorio.
-
-Jupyter y el resto de las librerías se instalan con `requirements.txt`.
+- Jupyter (se instala con `requirements.txt`).
 
 ## Instrucciones de ejecución
 
@@ -79,9 +77,9 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 4. Verificar el archivo de datos
+### 4. Verificar que el archivo de datos esté en su lugar
 
-El archivo de datos (`dataset.csv`) está incluido en la raíz del repositorio. La notebook lo lee con una ruta **relativa** (`dataset.csv`), por lo que debe abrirse y ejecutarse desde la raíz del repositorio. No hace falta modificar ninguna ruta.
+El archivo de datos (`dataset.csv`) se incluye en la raíz del repositorio. La notebook lo lee mediante una ruta **relativa**, por lo que debe ejecutarse desde la raíz del repositorio y no hace falta modificar ninguna ruta.
 
 ### 5. Abrir y ejecutar la notebook
 
@@ -99,25 +97,25 @@ jupyter nbconvert --to notebook --execute TPE_Ciencia_de_Datos.ipynb --output TP
 
 ## Estructura de la notebook
 
-> **Pendiente:** reemplazar esta tabla por las secciones reales de la notebook y mantenerlas sincronizadas con las referencias del informe.
+Las secciones de la notebook se corresponden con las del informe (Tabla 1 del informe):
 
-| Sección | Contenido |
-| --- | --- |
-| 1 | Carga de datos y análisis exploratorio |
-| 2 | Limpieza de la base |
-| 3 | Hipótesis 1 (univariada) |
-| 4 | Hipótesis 2 (bivariada) |
-| 5 | Hipótesis 3 (multivariada) |
-| 6 | Hipótesis 4: casos de CKF según grupo étnico |
-| 7 | Hipótesis 5: presión arterial como factor de riesgo |
-| 8 | Hipótesis 6: vínculo de edad, sexo, BMI, presión arterial, diabetes, tabaquismo y nivel socioeconómico con CKD |
-| 9 | Conclusiones |
+| Sección del informe | Contenido | Sección de la notebook |
+| ------------------- | --------- | ---------------------- |
+| 2.1 | Exploración inicial y caracterización de atributos | 0 (configuración) y 1.1 a 1.3 |
+| 2.2 | Distribución de variables y outliers | 1.4 a 1.6 |
+| 2.3 | Limpieza de la base | 2 y 2.1 |
+| 3.1 | Hipótesis 1 (univariada): proporción de adultos con ACR elevada | 3.1 |
+| 3.2 | Hipótesis 2 (bivariada): BMI según diabetes diagnosticada | 3.2 |
+| 3.3 | Hipótesis 3 (multivariada): parámetros bioquímicos y eGFR | 3.3 |
+| 3.4 | Hipótesis 4 (cátedra): casos de CKD según grupo étnico | 3.4 |
+| 3.5 | Hipótesis 5 (cátedra): presión arterial y presencia de CKD | 3.5 |
+| 3.6 | Hipótesis 6 (cátedra): edad, sexo, BMI, presión arterial, diabetes, tabaquismo y nivel socioeconómico con CKD | 3.6 |
 
 ## Sobre los datos
 
-Cada fila corresponde a una persona examinada en la encuesta NHANES 2021-2023. Las columnas combinan datos demográficos, medidas corporales, presión arterial, análisis de sangre y orina, antecedentes declarados y variables derivadas de función renal (eGFR con la ecuación CKD-EPI 2021, `ckd_stage` y `ckd_present`). El diccionario completo de variables se encuentra en `metadata.docx`.
+Cada fila corresponde a una persona examinada en la encuesta NHANES 2021-2023. Las columnas combinan datos demográficos, medidas corporales, presión arterial, análisis de sangre y orina, antecedentes declarados y variables derivadas de función renal (eGFR con la ecuación CKD-EPI 2021, `ckd_stage` y `ckd_present`). El diccionario completo de variables se encuentra en el informe (Tabla 2) y en `metadata.docx`.
 
 ## Notas
 
 - Una asociación observada en estos datos no demuestra causalidad.
-- Fuente de los datos: NHANES, Centers for Disease Control and Prevention (CDC) / National Center for Health Statistics (NCHS). https://www.cdc.gov/nchs/nhanes/
+- Fuente de los datos: NHANES, Centers for Disease Control and Prevention (CDC) / National Center for Health Statistics (NCHS). <https://www.cdc.gov/nchs/nhanes/>
