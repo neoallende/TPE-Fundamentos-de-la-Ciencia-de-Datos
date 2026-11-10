@@ -110,12 +110,3 @@ Las secciones de la notebook se corresponden con las del informe (Tabla 1 del in
 | 3.4 | Hipótesis 4 (cátedra): casos de CKD según grupo étnico | 3.4 |
 | 3.5 | Hipótesis 5 (cátedra): presión arterial y presencia de CKD | 3.5 |
 | 3.6 | Hipótesis 6 (cátedra): edad, sexo, BMI, presión arterial, diabetes, tabaquismo y nivel socioeconómico con CKD | 3.6 |
-
-## Sobre los datos
-
-Cada fila corresponde a una persona examinada en la encuesta NHANES 2021-2023. Las columnas combinan datos demográficos, medidas corporales, presión arterial, análisis de sangre y orina, antecedentes declarados y variables derivadas de función renal (eGFR con la ecuación CKD-EPI 2021, `ckd_stage` y `ckd_present`). El diccionario completo de variables se encuentra en el informe (Tabla 2) y en `metadata.docx`.
-
-## Notas
-
-- Una asociación observada en estos datos no demuestra causalidad.
-- Fuente de los datos: NHANES, Centers for Disease Control and Prevention (CDC) / National Center for Health Statistics (NCHS). <https://www.cdc.gov/nchs/nhanes/>
